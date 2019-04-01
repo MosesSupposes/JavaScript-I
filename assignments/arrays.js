@@ -91,19 +91,25 @@ function getDescriptionById(id, collection) {
     return itemFound ? description : errMsg
 }
 
-console.log(getDescriptionById(33, inventory))
-console.log(getDescriptionByIdLoop(16, inventory))
+console.log('Challenge 1 (loop) \n', getDescriptionByIdLoop(16, inventory))
+console.log('Challenge 1 (no loop) \n', getDescriptionById(33, inventory))
 
 
 // ==== Challenge 2 ====
 // The dealer needs the information on the last car in their inventory.  What is the make and model of the last car in the inventory?  Log the make and model into the console.
-const lastItem = x => Object.values(x).slice(-1)[0]
+const lastItem = 
+    x => Object.values(x).slice(-1)[0]
 
-console.log(lastItem(inventory))
+console.log('Challenge 2 \n', lastItem(inventory))
 
 // ==== Challenge 3 ====
 // The marketing team wants the car models listed alphabetically on the website. Sort all the car model names into alphabetical order and log the results in the console
 
+const sortAlphabetically = 
+    (valueToSortBy, collection) => collection.map(item => item[valueToSortBy]).sort()
+
+
+console.log('Challenge 3 \n', sortAlphabetically('car_make', inventory))
 
 // ==== Challenge 4 ====
 // The accounting team needs all the years from every car on the lot. Create a new array from the dealer data containing only the car years and log the result in the console.
