@@ -83,7 +83,7 @@ function getDescriptionByIdLoop(id, collection) {
 
 function getDescriptionById(id, collection) {
     const errMsg = `item with id: ${id} not found in collection: ${collection}`
-    , searchedItem = collection.filter(x => x.id === id)[0]
+    , searchedItem = collection.find(x => x.id === id)
     , itemFound = searchedItem && true
     , { car_make, car_model, car_year  } = searchedItem
     , description = `Car ${id} is a ${car_year} ${car_make} ${car_model}`
