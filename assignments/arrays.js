@@ -65,13 +65,13 @@ let inventory = [{"id":1,"car_make":"Lincoln","car_model":"Navigator","car_year"
 // The dealer can't recall the information for a car with an id of 33 on his lot. Help the dealer find out which car has an id of 33 by logging the car's year, make, and model in the console log provided to you below:
 
 
-function getDescriptionByIdLoop(id, collection) {
+function getDescriptionByIdLoop(id, arr) {
     var searchedItem, itemDescription, itemFound
-    const errMsg = `item with id: ${id} not found in collection: ${collection}`
+    const errMsg = `car with id: ${id} not found in inventory: ${arr}`
 
-    for (let i = 0; i < collection.length; i++) {
-        if (collection[i].id === id) {
-            searchedItem = collection[i]
+    for (let i = 0; i < arr.length; i++) {
+        if (arr[i].id === id) {
+            searchedItem = arr[i]
             itemFound = true
             const { car_make, car_model, car_year  } = searchedItem
             itemDescription = `Car ${id} is a ${car_year} ${car_make} ${car_model}`
@@ -81,9 +81,9 @@ function getDescriptionByIdLoop(id, collection) {
     return itemFound ? itemDescription : errMsg
 }
 
-function getDescriptionById(id, collection) {
-    const errMsg = `item with id: ${id} not found in collection: ${collection}`
-    , searchedItem = collection.find(x => x.id === id)
+function getDescriptionById(id, arr) {
+    const errMsg = `item with id: ${id} not found in inventory: ${arr}`
+    , searchedItem = arr.find(x => x.id === id)
     , itemFound = searchedItem && true
     , { car_make, car_model, car_year  } = searchedItem
     , description = `Car ${id} is a ${car_year} ${car_make} ${car_model}`
@@ -91,35 +91,37 @@ function getDescriptionById(id, collection) {
     return itemFound ? description : errMsg
 }
 
-console.log('Challenge 1 (loop) \n', getDescriptionByIdLoop(16, inventory))
-console.log('Challenge 1 (no loop) \n', getDescriptionById(33, inventory))
+console.log('Challenge 1 (loop): \n', getDescriptionByIdLoop(16, inventory))
+console.log('Challenge 1 (no loop): \n', getDescriptionById(33, inventory))
 
 
 // ==== Challenge 2 ====
 // The dealer needs the information on the last car in their inventory.  What is the make and model of the last car in the inventory?  Log the make and model into the console.
 const lastItem = 
-    x => Object.values(x).slice(-1)[0]
+    obj => Object.values(obj).slice(-1)[0]
 
-console.log('Challenge 2 \n', lastItem(inventory))
+console.log('Challenge 2: \n', lastItem(inventory))
 
 // ==== Challenge 3 ====
 // The marketing team wants the car models listed alphabetically on the website. Sort all the car model names into alphabetical order and log the results in the console
 
 const sortBy = 
-    (sortValue, collection) => collection.map(item => item[sortValue]).sort()
+    (sortValue, arr) => arr.map(item => item[sortValue]).sort()
 
 
-console.log('Challenge 3 \n', sortBy('car_make', inventory))
+console.log('Challenge 3: \n', sortBy('car_make', inventory))
 
 // ==== Challenge 4 ====
 // The accounting team needs all the years from every car on the lot. Create a new array from the dealer data containing only the car years and log the result in the console.
 
-console.log('Challenge 4 \n', sortBy('car_year', inventory));
+console.log('Challenge 4: \n', sortBy('car_year', inventory));
 
 // ==== Challenge 5 ====
 // The car lot manager needs to find out how many cars are older than the year 2000. Using the carYears array you just created, find out how many cars were made before the year 2000 by populating the array oldCars and logging it's length.
-let oldCars = [];
-console.log(); 
+function filterBy(prop, value, obj) {
+
+}
+console.log('Challenge 5: \n'); 
 
 // ==== Challenge 6 ====
 // A buyer is interested in seeing only BMW and Audi cars within the inventory.  Return an array that only contains BMW and Audi cars.  Once you have populated the BMWAndAudi array, use JSON.stringify() to show the results of the array in the console.
