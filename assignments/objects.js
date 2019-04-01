@@ -78,7 +78,7 @@ console.log(kennan.speak())
 
 // Antonietta loves math, give her the ability to multiply two numbers together and return the product. Use the console.log provided as a hint.
 antonietta.multiplyNums = (x,y) => x * y
-console.log(antonietta.multiplyNums(3,4));
+console.log(antonietta.multiplyNums(3,4))
 
 // === Great work! === Head over to the the arrays.js file or take a look at the stretch challenge
 
@@ -88,17 +88,34 @@ console.log(antonietta.multiplyNums(3,4));
 // 2. Nest a child object in the parent object with name and age as well.  The name will be George and the age will be 50.
 // 3. Nest a grandchild object in the child object with properties for name and age.  The name will be Sam and the age will be 30
 // 4. Give each of the objects the ability to speak their names using the this keyword.
+function speak() { return this.name }
+const parent = {
+  name: 'Susan',
+  age: 70,
+  speak() { return this.name },
+  child: {
+    name: 'George',
+    age: 50,
+    speak
+  },
+  grandchild: {
+    name: 'George Jr.',
+    age: 20,
+    speak
+  }
+}
 
-const parent = {}
+const { child, grandchild } = parent
 
 // Log the parent object's name
-
+console.log(parent.name)
 // Log the child's age
-
+console.log(child.age)
 // Log the name and age of the grandchild
-
+console.log(grandchild.name, grandchild.age)
 // Have the parent speak
-
+console.log(parent.speak())
 // Have the child speak
-
+console.log(child.speak())
 // Have the grandchild speak
+console.log(grandchild.speak())
