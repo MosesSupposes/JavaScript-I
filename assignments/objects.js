@@ -37,18 +37,37 @@ function InternFromConstuctor({id, name, email, gender}=femaleIntern) {
 }
 
 console.log('Challenge 1 (constructor): \n', new InternFromConstuctor(femaleIntern))
+
 // ==== Challenge 2: Reading Object Data ==== 
 // Once your objects are created, log out the following requests from HR into the console:
 
 // Mitzi's name
+const mitzi = InternFromFactory({name: 'Mitzi'})
+console.log(mitzi.name)
 
 // Kennan's ID
+const kennan = new InternFromConstuctor({id: 25, name: 'Kennan'})
+console.log(kennan.id)
 
 // Keven's email
+const keven = InternFromFactory({email: 'keven@aol.com', name: 'Keven'})
+console.log(keven.email)
 
 // Gannie's name
+const gannie = Object.assign(femaleIntern, {name: 'Gannie'})
+console.log(gannie.name)
 
 // Antonietta's Gender
+function FemaleIntern(attributes) {
+  this.gender = 'F'
+}
+
+FemaleIntern.prototype = InternFromConstuctor
+
+const antonietta = new FemaleIntern({name: 'antonietta'})
+console.log(antonietta.gender)
+
+
 
 // ==== Challenge 3: Object Methods ==== 
 // Give Kennan the ability to say "Hello, my name is Kennan!" Use the console.log provided as a hint.
