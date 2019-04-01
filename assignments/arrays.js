@@ -130,7 +130,7 @@ function filterObj(predicate, o) {
 }
 
 const olderThanYear2000 = 
-    obj => obj.car_year > 2000
+    ({car_year: year}) => year > 2000
 
 const challenge5 = 
     () => Object.keys( filterObj(olderThanYear2000, inventory) ).length
@@ -139,8 +139,11 @@ console.log('Challenge 5: \n', challenge5())
 
 // ==== Challenge 6 ====
 // A buyer is interested in seeing only BMW and Audi cars within the inventory.  Return an array that only contains BMW and Audi cars.  Once you have populated the BMWAndAudi array, use JSON.stringify() to show the results of the array in the console.
-let BMWAndAudi = [];
-console.log();
+const onlyAudisAndBenzes = ({car_make: make}) => make === "Mercedes-Benz" || make === "Audi"
+
+const challenge6 = () => Object.values(filterObj(onlyAudisAndBenzes, inventory))
+
+console.log('Challenge 6 /n', challenge6())
 
 
 
