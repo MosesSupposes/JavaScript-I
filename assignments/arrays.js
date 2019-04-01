@@ -105,16 +105,16 @@ console.log('Challenge 2 \n', lastItem(inventory))
 // ==== Challenge 3 ====
 // The marketing team wants the car models listed alphabetically on the website. Sort all the car model names into alphabetical order and log the results in the console
 
-const sortAlphabetically = 
-    (valueToSortBy, collection) => collection.map(item => item[valueToSortBy]).sort()
+const sortBy = 
+    (sortValue, collection) => collection.map(item => item[sortValue]).sort()
 
 
-console.log('Challenge 3 \n', sortAlphabetically('car_make', inventory))
+console.log('Challenge 3 \n', sortBy('car_make', inventory))
 
 // ==== Challenge 4 ====
 // The accounting team needs all the years from every car on the lot. Create a new array from the dealer data containing only the car years and log the result in the console.
-let carYears = [];
-console.log();
+
+console.log('Challenge 4 \n', sortBy('car_year', inventory));
 
 // ==== Challenge 5 ====
 // The car lot manager needs to find out how many cars are older than the year 2000. Using the carYears array you just created, find out how many cars were made before the year 2000 by populating the array oldCars and logging it's length.
