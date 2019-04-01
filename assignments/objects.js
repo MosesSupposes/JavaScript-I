@@ -10,16 +10,33 @@
 // 5,adaine5@samsung.com,Antonietta,F
 
 // Example format of an intern object: 1,examples@you.edu,Example,F
-const example = {
+const femaleIntern = {
   "id": 0,
-  "name": "Example",
-  "email": "examples@you.edu",
+  "name": "jane doe",
+  "email": "janedoe@anonymous.net",
   "gender": "F"
+}
+
+const maleIntern = {
+  "id": 1,
+  "name": "john doe",
+  "email": "johndoe@anonymous.net",
+  "gender": "M"
 }
 
 // Write your intern objects here:
 
+const InternFromFactory = intern => Object.assign({}, intern)
+console.log('Challenge 1 (factory): \n,', InternFromFactory(maleIntern))
 
+function InternFromConstuctor({id, name, email, gender}=femaleIntern) {
+  this.id = id
+  this.name = name,
+  this.email = email,
+  this.gender = gender
+}
+
+console.log('Challenge 1 (constructor): \n', new InternFromConstuctor(femaleIntern))
 // ==== Challenge 2: Reading Object Data ==== 
 // Once your objects are created, log out the following requests from HR into the console:
 
